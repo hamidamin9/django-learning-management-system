@@ -6,22 +6,26 @@
 <!-- Body Content Block -->
 {% block content %}
 
-<div class="jumbotron  my-auto">
-    <h1 class="display-3">Select Your Stream</h1>
-    <hr class="my-2">
+<div class="container">
+    <div class="jumbotron">
+        <br/><br/><br/>
+        <br/><br/><br/><br/>
+        <h1 class="display-3">Select Your Stream</h1>
+        <hr class="my-2">
 
-    <div class="col-lg-10 mx-auto">
+        <div class="col-lg-10 mx-auto">
 
-        <!-- For Loop -->
-        {% for stream in stream_list %}
+            <!-- For Loop -->
+            {% for stream in stream_list %}
 
-        <a class="btn btn-success" style=" margin: 1em;" href="{% url 'accounts:student_signup' stream.pk %}" role="button">
-            {{stream.name}}
-        </a>
+            <a class="btn btn-success" style="margin: 1em;" href="{% url 'accounts:student_signup' stream.pk %}" role="button">
+                {{stream.name}}
+            </a>
 
-        <!-- End For -->
-        {% endfor %}
+            <!-- End For -->
+            {% endfor %}
 
+        </div>
     </div>
 </div>
 
