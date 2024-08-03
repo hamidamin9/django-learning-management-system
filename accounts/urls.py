@@ -10,7 +10,7 @@ app_name = 'accounts'
 urlpatterns = [
     path('', IndexView.as_view(), name='signup'),
     path('login/', LoginView.as_view(template_name='accounts/login.html',redirect_authenticated_user=True), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView.as_view(template_name='accounts/login.html'), name='logout'),
     
     path('signup/student/stream/', StreamView.as_view(template_name = "accounts/student_stream.html"), name='student_stream'),
     path('signup/student/<int:stream_pk>/', StudentCreateView.as_view(), name='student_signup'),
@@ -20,3 +20,6 @@ urlpatterns = [
     
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

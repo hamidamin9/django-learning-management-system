@@ -11,44 +11,86 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+
+    <!-- add new design -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap');
+
+        .masthead {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .masthead::before {
+            content: "";
+            background-image: url('{% static 'accounts/assets/img/wise_lms_bg.jpg' %}');
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(10px); /* Adjust the blur intensity as needed */
+        }
+
+        .text-uppercase strong {
+            font-family: 'Jacques Francois Shadow', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add black shadow effect */
+            color: rgb(29, 19, 19); /* Set text color to black */
+            font-size: 40px; /* Set the font size to 16 pixels */
+        }
+
+    </style>
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="57">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">L.M.S</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="{% url 'home' %}" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="{% static 'accounts/assets/img/wise_logo_lms.jpg' %}" alt="logo" width="45" height="45" class="d-inline-block align-top">
+                <div style="font-size: 22px; color: black; margin-left: 10px;">Wise College L.M.S</div>
+            </a>
+            <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-align-justify"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:signup' %}">Register</a>
+                        <div class="col-lg-2 mx-auto">
+                            <!-- <p class="text-faded mb-5" ></p> -->
+                            <a class="btn btn-primary btn-20px" style="background-color: #0000ff;" role="button" href="{% url 'accounts:login' %}">SIGNUP</a>
+                        </div>
+                        <!-- <a class="nav-link" href="{% url 'accounts:login' %}"><div style="color: black;">Login</div></a> -->
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="text-center text-white d-flex masthead" style="background-image: url('{% static 'accounts/assets/img/header.jpg' %}');">
+    
+    <!-- <header class="text-center text-white d-flex masthead" style="background-image: url('{% static 'accounts/assets/img/wise_lms_bg.jpg' %}');margin-top: 65px; "> -->
+        
         <!-- start -->
         {% block content %}
+         <header class="text-center text-white d-flex masthead" style="margin-top: 65px;">
+        <!-- Header content -->
         <div class="container my-auto">
+            <br><br><br>
+                    
+                    <br><br>
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <h1 class="text-uppercase">
-                        <strong>Get started with <br />the learning management system</strong>
-                    </h1>
-                    <hr />
-
+                        <strong>Welcome To  <br />Wise College Learning Management System</strong>
+                    <br><br><br><br>
+                    
+                    <br><br><br>
                 </div>
             </div>
-            <div class="col-lg-8 mx-auto">
-                <p class="text-faded mb-5"></p>
-                <a class="btn btn-primary btn-xl" role="button" href="{% url 'accounts:login' %}">Login</a>
-            </div>
+            
         </div>
+    
+            
         <!-- end -->
         {% endblock content %}
     </header>
@@ -66,12 +108,12 @@
             <div class="row">
                 <div class="col-lg-4 text-center ms-auto">
                     <i class="fa fa-phone fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-once="true"></i>
-                    <p>123-456-6789</p>
+                    <p>+92 322 4540783</p>
                 </div>
                 <div class="col-lg-4 text-center me-auto">
                     <i class="fa fa-envelope-o fa-3x mb-3 sr-contact" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true"></i>
                     <p>
-                        <a href="mailto:support@lmsportal.com">support@lmsportal.com</a>
+                        <a href="mailto:support@lmsportal.com" >navtac@gmail.com</a>
                     </p>
                 </div>
             </div>

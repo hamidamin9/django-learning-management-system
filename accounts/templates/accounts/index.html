@@ -1,21 +1,59 @@
-{% extends 'accounts/base.html' %} {% block title %}Sign Up{% endblock title %} {% block content %}
+{% extends 'accounts/base.html' %} 
+{% load static %}
+{% block title %}Sign Up{% endblock title %} 
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap" rel="stylesheet">
+
+<style>
+    .heading-font {
+        font-family: 'Jacques Francois Shadow', cursive;}
+
+        .btn-student {
+        background-image: url('{% static 'accounts/assets/img/student_wise.jpg' %}');
+        background-size: cover;  /* Ensure the entire button area is covered by the image */
+        background-repeat: no-repeat;
+        background-color: blue;
+        background-position: center; /* Center the image */
+        color: black; /* Text color */
+        font-family: 'Jacques Francois Shadow';
+        width: 200px; /* Adjust width as needed */
+        height: 250px; /* Adjust height as needed */
+        font-size: 20px; /* Adjust font size as needed */
+        padding: 90px 40px; /* Adjust padding as needed */
+        border-radius: 20px; /* Make the button rectangular */
+        
+    }
+
+    .btn-teacher {
+    background-image: url('{% static 'accounts/assets/img/teacher_wise.jpg' %}');
+    background-size: cover; /* Ensure the entire button area is covered by the image */
+    background-repeat: no-repeat;
+    background-color: blue;
+    background-position: center; /* Center the image */
+    font-family: 'Jacques Francois Shadow';
+    color: black; /* Text color */
+    width: 200px; /* Adjust width as needed */
+    height: 250px; /* Adjust height as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    padding: 90px 40px; /* Adjust padding as needed */
+    border-radius: 20px; /* Make the button rectangular */
+    }
+    
+</style>
 <div class="container">
     <div class="jumbotron">
         <br><br><br>
-        <h1 class="display-3">Sign Up!</h1>
+        <!-- <h1 class="display-3 heading-font" style="color: black;">Sign Up!</h1> -->
+
         <br>
-        <p class="lead">Create a account!</p>
-        <br>
+        <p class="lead" style="color: black;">Create an account!</p>
         <hr class="my-2">
         <br>
-        <p>Choose your role.</p>
-        <br>
         <p class="lead">
-            <a class="btn btn-success btn-lg" href="{% url 'accounts:student_stream' %}" role="button">I'm a Student!</a>
+            <a class="btn btn-success btn-lg btn-student" href="{% url 'accounts:student_stream' %}" role="button"><br><br><br><br>Student!</a>
 
-            <a class="btn btn-primary btn-lg" href="{% url 'accounts:teacher_stream' %}" role="button">I'm a Teacher!</a>
+            <a class="btn btn-primary btn-lg btn-teacher" href="{% url 'accounts:teacher_stream' %}" role="button"><br><br><br><br>Teacher!</a>
         </p>
     </div>
 </div>
-
 {% endblock content %}

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY=env('SECRET_KEY',default="7ii8ukg")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -146,15 +146,15 @@ LOGIN_URL = '/accounts/login/'
 LOGOUT_REDIRECT_URL = '/'
 
 
-DEFAULT_FILE_STORAGE = 'mylms.custom_azure.AzureMediaStorage'
-STATICFILES_STORAGE = 'mylms.custom_azure.AzureStaticStorage'
+#DEFAULT_FILE_STORAGE = 'mylms.custom_azure.AzureMediaStorage'
+#STATICFILES_STORAGE = 'mylms.custom_azure.AzureStaticStorage'
 
 STATIC_LOCATION = "static"
 MEDIA_LOCATION = "media"
 
-AZURE_ACCOUNT_NAME = env('AZURE_ACCOUNT_NAME')
-AZURE_STORAGE_ACCOUNT_KEY = env('AZURE_STORAGE_ACCOUNT_KEY')
+#AZURE_ACCOUNT_NAME = env('AZURE_ACCOUNT_NAME')
+#AZURE_STORAGE_ACCOUNT_KEY = env('AZURE_STORAGE_ACCOUNT_KEY')
 
-AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
-STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+#AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+#STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+#MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'

@@ -23,9 +23,9 @@ class StudentForm(UserCreationForm):
     
     current_class = forms.ModelChoiceField(queryset=None, empty_label=None, required=True)
     
-    roll_no =forms.IntegerField(label='Roll No.', required=True, min_value=1, max_value=500)
+    roll_no =forms.IntegerField(label='Roll No.', required=True, min_value=1, max_value=30000)
     
-    student_id = forms.CharField(label='Student ID', max_length=50, required=True, min_length=4)
+    student_id = forms.CharField(label='Phone Number', max_length=50, required=True, min_length=10)
     
     class Meta(UserCreationForm.Meta):
         model = User
@@ -61,7 +61,7 @@ class StudentForm(UserCreationForm):
         
         # Student id validation
         if Student.objects.filter(student_id=student_id).exists():
-            print("Student ID exists")
+            print("student_id exists")
             raise forms.ValidationError('Student with Student ID already exists.')
         
         # Email Validations

@@ -116,10 +116,21 @@ class Classroom(models.Model):
         blank=False,
         related_name='classrooms')
 
+    SUBJECT_CHOICES = [
+        ('Python/Django', _('Python/Django')),
+        ('Power BI', _('Power BI')),
+        ('data_mining', _('Data Mining')),
+        ('ai', _('AI')),
+        ('UI/UX', _('UI/UX')),
+        ('computerized accounting', _('Computerized Accounting')),
+    ]
+
     subject = models.CharField(
         _("Subject Name"),
         max_length=50,
-        blank=False)
+        choices=SUBJECT_CHOICES,
+        blank=False
+    )
 
     code = models.SlugField(
         _("Subject Code"),
@@ -127,15 +138,25 @@ class Classroom(models.Model):
         default=random_string,
         unique=True)
 
-    semester = models.PositiveIntegerField(
+    # semester = models.PositiveIntegerField(
+    #     blank=False,
+    #     default=1,
+    #     validators=[
+    #         MaxValueValidator(8),
+    #         MinValueValidator(1)
+    #     ]
+    # )
+    SHIFT_CHOICES = [
+        ('morning', _('Morning ')),
+        ('evening', _('Evening')),]
+    
+    
+    shift = models.CharField(
+        max_length=50,
         blank=False,
+        choices=SHIFT_CHOICES,
         default=1,
-        validators=[
-            MaxValueValidator(8),
-            MinValueValidator(1)
-        ]
     )
-
     created_timestamp = models.DateTimeField(
         default=timezone.now,
         editable=False)

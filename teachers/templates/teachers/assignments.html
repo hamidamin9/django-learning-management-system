@@ -17,7 +17,12 @@
         <div class="shadow card"><a class="btn btn-link text-left card-header font-weight-bold" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-4-{{assignment.pk|slugify}}" href="#collapse-4-{{assignment.pk|slugify}}" role="button">{{assignment.title}}</a>
             <div class="collapse" id="collapse-4-{{assignment.pk|slugify}}">
                 <div class="card-body">
-                    <div class="alert alert-danger" role="alert"><span><strong>Deadline :&nbsp; {{assignment.deadline|date:"M d, Y"}}</strong></span></div>
+                   <div class="alert alert-info" role="alert"><span><strong>Uploaded: {{ assignment.created_timestamp|date:"M d, Y, H:i" }}</strong></span>
+                    </div>
+
+                    <!-- <div class="alert alert-danger" role="alert"><span><strong>Deadline :&nbsp; {{assignment.deadline|date:"M d, Y"}}</strong></span></div> -->
+                    <div class="alert alert-danger" role="alert"><span><strong>Deadline: {{ assignment.deadline|date:"M d, Y,  H:i" }}</strong></span>
+                    </div>
                     <p class="m-0">{{assignment.text|linebreaksbr}}</p>
                     <!-- Start: break 4.0 --><br>
                     <!-- End: break 4.0 -->

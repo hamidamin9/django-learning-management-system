@@ -1,31 +1,57 @@
 {% extends 'accounts/base.html' %}
-
+{% load static %}
 <!-- Title Block -->
 {% block title %}Sign Up{% endblock title %}
 
 <!-- Body Content Block -->
 {% block content %}
-
-<div class="jumbotron  my-auto">
-    <h1 class="display-3">Select Your Stream</h1>
-    <hr class="my-2">
-
-    <div class="col-lg-10 mx-auto">
-
-        <!-- For Loop -->
-        {% for stream in stream_list %}
-
-        <a class="btn btn-success" style=" margin: 1em;" href="{% url 'accounts:teacher_signup' stream.pk %}" role="button">
-            {{stream.name}}
-        </a>
-
-        <!-- End For -->
-        {% endfor %}
-
+<style>
+    .custom-font {
+        font-family: 'Jacques Francois Shadow', cursive;
+    }
+    .card-img-top {
+        height: 200px; /* Adjust height as needed */
+        width: 100%; /* Ensure the width is 100% of the card */
+        object-fit: cover; /* This ensures the image covers the area and maintains aspect ratio */
+    }
+    .btn-success {
+        width: 100%; /* Ensure button width is 100% of the card body */
+        margin: 1em 0; /* Adjust margin for top and bottom spacing */
+    }
+</style>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-3 text-black custom-font">Select Your Stream</h1>
+        
+        <div class="container">
+            <div class="row">
+                {% for stream in stream_list %}
+                <div class="col-lg-3 mb-3"> <!-- Each card takes up 4 out of 12 columns on large screens -->
+                    <div class="card">
+                        {% if stream.name == 'Power BI' %}
+                            <img src="{% static 'accounts/assets/img/powerbi1.png' %}" class="card-img-top" alt="{{ stream.name }}">
+                        {% elif stream.name == 'Python' %}
+                            <img src="{% static 'accounts/assets/img/python1.jpeg' %}" class="card-img-top" alt="{{ stream.name }}">
+                        {% elif stream.name == 'Artificial Intelligence' %} 
+                            <img src="{% static 'accounts/assets/img/ai1.jpeg' %}" class="card-img-top" alt="{{ stream.name }}">   
+                        {% else %}
+                            <!-- Provide a default image path here -->
+                            <img src="{% static 'accounts/assets/img/data_mining.jpg' %}" class="card-img-top" alt="Default Image">
+                        {% endif %}
+        
+                        <div class="card-body">
+                            <h5 class="card-title">{{ stream.name }}</h5>
+                            <a class="btn btn-success" href="{% url 'accounts:teacher_signup' stream.pk %}" role="button">
+                                {{ stream.name }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
-
-
 
 <!-- End Block -->
 {% endblock content %}
